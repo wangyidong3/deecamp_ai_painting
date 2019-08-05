@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view> </view>
+  <canvas style="width: {{canvasw}}px; height: {{canvash}}px" class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+  <view>
+    <button class="btn" bindtap="cleardraw">清除画板</button>
+    <button class="btn" bindtap="setSign">确定</button>
+  </view>
+   <image src='{{canvasimgsrc}}'></image> 
+</view>
