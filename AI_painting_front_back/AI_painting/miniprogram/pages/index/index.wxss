@@ -10,7 +10,7 @@ canvas{
   background: #f2f2f2
 }
 .btn {
-  width: 100%;
+  width: 80%;
   margin-top: 30rpx;
   background-color: #16b816;
   color: #FFF;

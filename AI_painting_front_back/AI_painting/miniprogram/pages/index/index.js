@@ -108,9 +108,9 @@ Page({
     wx.canvasToTempFilePath({
       canvasId: 'canvas',
       success: function (res) {
-        console.log("canvas可以生成图片")
-        console.log(res.tempFilePath, 'canvas图片地址');
-        that.setData({ canvasimgsrc:res.tempFilePath })
+        //console.log("canvas可以生成图片")
+        //console.log(res.tempFilePath, 'canvas图片地址');
+        //that.setData({ canvasimgsrc:res.tempFilePath })
         //把图片保存到相册里
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
@@ -125,10 +125,11 @@ Page({
             console.log(res);
           }
         })
+        
         wx.uploadFile({
 
-          url: "http://127.0.0.1:5000/",
-          filePath: res.tempFilePath,  //文件路径 
+          url: "http://106.75.34.228:82/infer-66f28b95-d8ec-4e11-a2fe-14a544cc6b16/",
+          filePath: res.tempFilePath,  //文件路径  
           name: 'file',  //随意
           header: {
             'Content-Type': 'multipart/form-data',
@@ -140,15 +141,16 @@ Page({
           },
           success(res) {
             //将收到的图片base64字符串流转化为图片
-            var array = wx.base64ToArrayBuffer(res.data)
-            var base64 = wx.arrayBufferToBase64(array)
+            //var array = wx.base64ToArrayBuffer(res.data)
+            //var base64 = wx.arrayBufferToBase64(array)
+            var base64 = res.data.replace(/[\r\n]/g, "")
+//后台传过来的数据可能会有空格‘/n’ 所以去掉空格再调用base64方法即可
             that.setData({ canvasimgsrc: 'data:image/png;base64,' + base64 })
           }
         })
-
-        //code 比如上传操作
-
+        
       },
+
       fail: function () {
         console.log("canvas不可以生成图片")
         wx.showModal({
@@ -161,6 +163,7 @@ Page({
 
       }
     })
+    
 
 
   },
