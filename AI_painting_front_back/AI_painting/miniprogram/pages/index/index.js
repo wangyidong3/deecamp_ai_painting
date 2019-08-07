@@ -15,7 +15,8 @@ Page({
     canvasw: 0,
     canvash: 0,
     //canvas生成的图片路径
-    canvasimgsrc: ""
+    canvasimgsrc: "",
+    loading: false
   },
   //画布初始化执行
   startCanvas: function () {
@@ -91,9 +92,15 @@ Page({
     arrz = [];
     context.clearRect(0, 0, canvasw, canvash);
     context.draw(true);
+    wx.navigateTo({
+      url: '../savedCartoon/savedCartoon'
+    })
   },
   //提交签名内容
   setSign: function () {
+    this.setData({
+      loading: true
+    })
     var that = this;
     if (arrx.length == 0) {
       wx.showModal({
@@ -146,6 +153,7 @@ Page({
             var base64 = res.data.replace(/[\r\n]/g, "")
 //后台传过来的数据可能会有空格‘/n’ 所以去掉空格再调用base64方法即可
             that.setData({ canvasimgsrc: 'data:image/png;base64,' + base64 })
+            that.setData({ loading: false            })
           }
         })
         

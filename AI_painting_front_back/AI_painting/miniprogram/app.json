@@ -10,7 +10,9 @@
     "pages/openapi/openapi",
     "pages/openapi/serverapi/serverapi",
     "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid"
+    "pages/openapi/cloudid/cloudid",
+    "pages/savedCartoon",
+    "pages/savedCartoon/savedCartoon"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

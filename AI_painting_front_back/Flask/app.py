@@ -30,7 +30,7 @@ def resize():
     img = img.convert("RGB")
     resized = img.resize((256,256))
     resized.save("resized.jpg")
-    os.system('python /data/code/233/pix2pix-origin/process-local.py --model_dir /data/code/233/pix2pix-origin/export_0806 --input_file resized.jpg --output_file 4.png')
+    os.system('python /data/code/233/pix2pix-origin/process-local.py --model_dir /data/code/233/pix2pix-origin2/export_new_L1 --input_file resized.jpg --output_file 4.png')
 
 if __name__ == '__main__':
 

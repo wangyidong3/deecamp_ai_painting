@@ -1,0 +1,13 @@
+<!--miniprogram/pages/savedCartoon/savedCartoon.wxml-->
+
+<view class="container">
+ 
+<image class="image_frame" src="http://img1.3lian.com/2015/w7/85/d/101.jpg" mode="scaleToFill">
+</image>
+ 
+   <view>
+    <button class="btn" bindtap="share" >发送给好友</button>
+    <button class="btn" bindtap="album" >本地相册</button>
+    <button class="btn_cancel" bindtap="back" >取消</button>
+  </view>
+</view>
