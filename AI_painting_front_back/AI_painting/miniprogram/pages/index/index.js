@@ -5,6 +5,7 @@ var arry = [];//动作纵坐标
 var arrz = [];//总做状态，标识按下到抬起的一个组合
 var canvasw = 0;//画布宽度
 var canvash = 0;//画布高度
+const app=getApp()
 // pages/shouxieban/shouxieban.js
 Page({
   /**
@@ -15,8 +16,7 @@ Page({
     canvasw: 0,
     canvash: 0,
     //canvas生成的图片路径
-    canvasimgsrc: "",
-    loading: false
+    canvasimgsrc: ""
   },
   //画布初始化执行
   startCanvas: function () {
@@ -26,7 +26,7 @@ Page({
     //获取系统信息
     wx.getSystemInfo({
       success: function (res) {
-        canvasw = res.windowWidth - 0;//设备宽度
+        canvasw = res.windowWidth - 20;//设备宽度
         canvash = canvasw;
         that.setData({ 'canvasw': canvasw });//根据设备的宽度和高度对canvas画布的高度和宽度进行赋值
         that.setData({ 'canvash': canvash });
@@ -74,7 +74,7 @@ Page({
     context.clearRect(0, 0, canvasw, canvash);//clearRect()方法清空给定矩形内的指定像素
     context.drawImage("image/white.png", 0, 0, canvasw, canvash);
     context.setStrokeStyle('#000000');
-    context.setLineWidth(3);
+    context.setLineWidth(4);
     context.setLineCap('round');
     context.setLineJoin('round');
     context.stroke();
@@ -92,15 +92,9 @@ Page({
     arrz = [];
     context.clearRect(0, 0, canvasw, canvash);
     context.draw(true);
-    wx.navigateTo({
-      url: '../savedCartoon/savedCartoon'
-    })
   },
   //提交签名内容
   setSign: function () {
-    this.setData({
-      loading: true
-    })
     var that = this;
     if (arrx.length == 0) {
       wx.showModal({
@@ -119,7 +113,7 @@ Page({
         //console.log(res.tempFilePath, 'canvas图片地址');
         //that.setData({ canvasimgsrc:res.tempFilePath })
         //把图片保存到相册里
-        wx.saveImageToPhotosAlbum({
+        /*wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
           success(res) {
             console.log("保存图片：success");
@@ -131,6 +125,13 @@ Page({
             console.log("保存图片：fail");
             console.log(res);
           }
+        })
+        */
+        
+        wx.showToast({
+          title: '加载中',
+          icon: 'loading',
+          duration: 10000
         })
         
         wx.uploadFile({
@@ -152,8 +153,12 @@ Page({
             //var base64 = wx.arrayBufferToBase64(array)
             var base64 = res.data.replace(/[\r\n]/g, "")
 //后台传过来的数据可能会有空格‘/n’ 所以去掉空格再调用base64方法即可
-            that.setData({ canvasimgsrc: 'data:image/png;base64,' + base64 })
-            that.setData({ loading: false            })
+            that.setData({canvasimgsrc: 'data:image/png;base64,' + base64 })
+            app.globalData.image=that.data.canvasimgsrc
+            console.log(app.globalData.image)
+            wx.navigateTo({
+              url: '../display/display',
+            })
           }
         })
         
@@ -171,7 +176,7 @@ Page({
 
       }
     })
-    
+
 
 
   },

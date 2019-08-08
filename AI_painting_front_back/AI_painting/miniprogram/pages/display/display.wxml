@@ -1,0 +1,8 @@
+<!--miniprogram/pages/display/display.wxml-->
+<view class="container">
+<image src='{{canvasimgsrc}}' class="test"></image> 
+</view>
+<view class="outer">
+    <button class="btn1" bindtap="saveColored">保存图片</button>
+    <button class="btn2" bindtap="generateCartoon">生成动画</button>
+</view>

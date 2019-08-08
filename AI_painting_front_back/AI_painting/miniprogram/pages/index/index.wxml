@@ -1,10 +1,8 @@
 <!--index.wxml-->
-<view class="container">
-  <view> </view>
+<view class="container" >
   <canvas style="width: {{canvasw}}px; height: {{canvash}}px" class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
-  <view>
-    <button class="btn" bindtap="cleardraw">清除画板</button>
-    <button class="btn" bindtap="setSign" loading="{{loading}}">确定</button>
-  </view>
-   <image src='{{canvasimgsrc}}'></image> 
+</view>
+<view class="outer">
+    <button class="btn1" bindtap="cleardraw">清除画板</button>
+    <button class="btn2" bindtap="setSign">来，妖艳一下</button>
 </view>

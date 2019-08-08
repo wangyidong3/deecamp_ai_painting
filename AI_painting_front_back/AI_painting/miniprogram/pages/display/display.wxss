@@ -1,5 +1,4 @@
-/* pages/shouxieban/shouxieban.wxss */
-/*手写板  */
+/* miniprogram/pages/display/display.wxss */
 page{
   background: radial-gradient(white,#f7b500);
 }
@@ -7,10 +6,11 @@ page{
   width:750rpx;
   height:1000rpx;
 }
-canvas{
+.test{
   margin-top:150rpx;
-  margin-left: 20rpx;
-  background: white
+  margin-left: 25rpx;
+  width:700rpx;
+  height:700rpx;
 }
 .btn1{
   width:40%;

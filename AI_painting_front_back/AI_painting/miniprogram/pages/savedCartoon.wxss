@@ -1,1 +1,32 @@
-/* pages/savedCartoon.wxss */
+/* miniprogram/pages/savedCartoon/savedCartoon.wxss */
+
+page{
+  background: #F7B500;
+  padding: 5px auto
+}
+canvas{
+  border: 1px solid #d0d0d0;
+  margin: 5rpx;
+  background: #f2f2f2
+}
+.btn {
+  width: 80%;
+  background-color: white;
+  color: black;
+  margin-top: 3rpx;
+}
+.btn_cancel{
+  width: 80%;
+  margin-top: 30rpx;
+  background-color: white;
+  color: black;
+}
+
+.container{
+  text-align: center;
+
+}
+image {
+   margin-top: 200rpx;
+
+}
