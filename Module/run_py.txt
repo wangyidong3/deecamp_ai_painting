@@ -1,0 +1,15 @@
+training command:
+
+python pix2pix.py --mode train --output_dir /data/output/checkpoints/origin/ --max_epochs 1000 --batch_size 32 --input_dir /data/data/B.K.Huang/final_dataset/origin/ --which_direction AtoB
+
+
+testing command:
+
+python pix2pix.py --mode test --output_dir 1.png --input_dir D:\AI\Deecamp\GAN\data\val_256_en --checkpoint facades_train
+
+exporting command:
+
+python pix2pix.py --mode export --output_dir export_0806 --checkpoint /data/output/checkpoints/origin
+
+test the exporting model:
+python process-local.py --model_dir /data/code/233/pix2pix-origin/export_0806 --input_file 1.png --output_file 2.png
