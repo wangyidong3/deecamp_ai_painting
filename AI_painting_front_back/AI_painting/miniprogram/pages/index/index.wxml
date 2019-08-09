@@ -3,6 +3,6 @@
   <canvas style="width: {{canvasw}}px; height: {{canvash}}px" class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
 </view>
 <view class="outer">
-    <button class="btn1" bindtap="cleardraw">清除画板</button>
+    <button class="btn1" bindtap="cleardraw">什么鬼，重画</button>
     <button class="btn2" bindtap="setSign">来，妖艳一下</button>
 </view>

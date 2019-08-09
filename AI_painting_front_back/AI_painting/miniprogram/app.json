@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/display/display",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -18,8 +19,9 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "AI_painting",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "灵魂画手",
+    "navigationBarTextStyle": "black",
+    "disableScroll":true
   },
   "sitemapLocation": "sitemap.json"
 }

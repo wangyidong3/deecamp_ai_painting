@@ -96,10 +96,11 @@ Page({
   //提交签名内容
   setSign: function () {
     var that = this;
+    var start = new Date().getTime(); // 开始时间
     if (arrx.length == 0) {
       wx.showModal({
-        title: '提示',
-        content: '签名内容不能为空！',
+        title: '醒醒！',
+        content: '啥都没干就作妖，快去画！',
         showCancel: false
       });
       return false;
@@ -135,8 +136,8 @@ Page({
         })
         
         wx.uploadFile({
-
-          url: "http://106.75.34.228:82/infer-66f28b95-d8ec-4e11-a2fe-14a544cc6b16/",
+          url: "https://jupyter-uaitrain-bj2.ucloud.cn:443/infer-66f28b95-d8ec-4e11-a2fe-14a544cc6b16/",
+          //url: "http://106.75.34.228:82/infer-66f28b95-d8ec-4e11-a2fe-14a544cc6b16/",
           filePath: res.tempFilePath,  //文件路径  
           name: 'file',  //随意
           header: {
@@ -151,16 +152,19 @@ Page({
             //将收到的图片base64字符串流转化为图片
             //var array = wx.base64ToArrayBuffer(res.data)
             //var base64 = wx.arrayBufferToBase64(array)
-            var base64 = res.data.replace(/[\r\n]/g, "")
-//后台传过来的数据可能会有空格‘/n’ 所以去掉空格再调用base64方法即可
+            var base64 = res.data.replace(/[\r\n]/g, "")//后台传过来的数据可能会有空格‘/n’ 所以去掉空格再调用base64方法即可
             that.setData({canvasimgsrc: 'data:image/png;base64,' + base64 })
             app.globalData.image=that.data.canvasimgsrc
-            console.log(app.globalData.image)
+            //console.log(app.globalData.image)
             wx.navigateTo({
               url: '../display/display',
             })
+            var end = new Date().getTime(); // 结束时间
+            console.log("计算运行时间")
+            console.log(end - start);
           }
         })
+        
         
       },
 
@@ -176,6 +180,7 @@ Page({
 
       }
     })
+
 
 
 
