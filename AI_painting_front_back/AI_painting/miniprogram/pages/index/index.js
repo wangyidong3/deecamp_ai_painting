@@ -136,7 +136,7 @@ Page({
         })
         
         wx.uploadFile({
-          url: "https://jupyter-uaitrain-bj2.ucloud.cn:443/infer-66f28b95-d8ec-4e11-a2fe-14a544cc6b16/",
+          url: "https://jupyter-uaitrain-bj2.ucloud.cn:443/infer-64070ab5-caa3-4782-8f6d-0f3917c5c6be/",
           //url: "http://106.75.34.228:82/infer-66f28b95-d8ec-4e11-a2fe-14a544cc6b16/",
           filePath: res.tempFilePath,  //文件路径  
           name: 'file',  //随意
